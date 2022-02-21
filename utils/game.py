@@ -16,12 +16,20 @@ class Board:
         return len(self.players) + " players at turn nr: "+ str(self.turn_count) 
 
     def start_game(self):
+        """
+        Function that will start the game
+        Creates a Deck, fills, shuffles and distributes the deck
+        Writes the turn number and remaining cards amount of the game
+        for each player plays the game and removes the played cards from card history.  
+        
+        """
+    
         
         _deck=  Deck()
         _deck.fill_deck()
         _deck.shuffle()
         _deck.distrubute(self.players)
-        self.history_cards = a
+        self.history_cards = _deck
 
         for t in range(0, 13):
             print("____________________________")
