@@ -9,9 +9,9 @@
 - Started: `21/02/2022 H:09:30`
 - Deadline: `23/02/2022 H:16:30`
 
-# Mission objectives
+# Description
 
-Create a card game in python.
+A basic card game in python. Must Have Version
 
 
 ## Learning Objectives
@@ -23,32 +23,13 @@ Create a card game in python.
 - Structure a project.
 - Go deeper in object inheritance.
 
-## The Mission
+## Installation
+      git clone https://github.com/bakiguher/challenge-card-game-becode.git
+      
+
+## Usage
+      python main.py
 
 
 
-You apply for a job as a developer for an online casino called `WeTakeYourMoney`.
-
-They are interested in your profile.
-During the interview challenge, they ask you to build a card game in Python.
-
-
-
-## Deliverables
-
-1. Publish your source code on the GitHub repository.
-2. Pimp up the README file:
-   - Description
-   - Installation
-   - Usage
-   - (Visuals)
-   - (Contributors)
-   - (Timeline)
-   - (Personal situation)
-
-
-
-
-
-### Repository
 
