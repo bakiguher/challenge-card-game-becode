@@ -16,11 +16,11 @@ class Board:
         return len(self.players) + " players at turn nr: "+ str(self.turn_count) 
 
     def start_game(self):
-        # self.active_cards=deck
-        a = Deck()
-        a.fill_deck()
-        a.shuffle()
-        a.distrubute(self.players)
+        
+        _deck=  Deck()
+        _deck.fill_deck()
+        _deck.shuffle()
+        _deck.distrubute(self.players)
         self.history_cards = a
 
         for t in range(0, 13):
