@@ -16,18 +16,51 @@ from player import Player, Deck
 # The list of active cards.
 # The number of cards in the history_cards.
 
+
 class Board:
-    players:list[Player]=[]
-    turn_count:int=0
-    active_cards:list[Card]=[]
-    history_cards:list[Card]=[]
+    players: list[Player] = []
+    turn_count: int = 0
+    active_cards: list[Card] = []
+    history_cards: list[Card] = []
 
-    def __init__(self, players:list[Player],deck:Deck):
+    def __init__(self, players: list[Player]):
+        self.players = players
+
+    def start_game(self):
+        # self.active_cards=deck
+        a = Deck()
+        a.fill_deck()
+        a.shuffle()
+        a.distrubute(self.players)
+        self.active_cards = a
+
+        for t in range(0, 13):
+            print("________________")
+            print("Turn: " + str(t+1))
+            
+            for k in self.players:
+                k.play()
+
+        # start thegame
+        # fill a deck
+        # distrubute
+        # each player play
         pass
 
-    def start_game():
-        #start thegame
-        #fill a deck
-        #distrubute
-        #each player play
-        pass
+
+p1 = Player("Azra")
+p2 = Player("Baki")
+p3 = Player("Coni")
+p4 = Player("Desta")
+
+
+_players = [p1, p2, p3, p4]
+
+a = Deck()
+k = Board(_players)
+k.start_game()
+
+
+# a.fill_deck()
+# a.shuffle()
+# a.distrubute(_players)
