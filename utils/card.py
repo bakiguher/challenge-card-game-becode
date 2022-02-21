@@ -1,5 +1,5 @@
 from enum import Enum
-from xml.etree.ElementTree import tostring
+
 
 # class Icon(Enum):
 #     Clubs = '♣'
@@ -12,7 +12,7 @@ from xml.etree.ElementTree import tostring
 
 
 class Symbol:
-    color: str = ""
+    color: str = ""  #Why do we need color????
     icon = ""
 
     def __init__(self, color: str, item: int):
@@ -29,8 +29,8 @@ class Card(Symbol):
 
     def __init__(self, color, icon, item: int):
 
-        values = ["Ace", "2", "3", "4", "5", "6", "7",
-                  "8", "9", "10", "Jack", "Queen", "King"]
+        values = ["A", "2", "3", "4", "5", "6", "7",
+                  "8", "9", "10", "J", "Q", "K"]
 
         super().__init__(color, icon)
         self.value = values[item]
@@ -40,8 +40,7 @@ class Card(Symbol):
 
 
 
-b=Symbol("blue",2)
-print (b)
+
 # a = Card("red", 0, 4)
 # print(a.value)
 # a = Card("blue", 0, 9)

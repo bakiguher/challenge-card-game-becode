@@ -1,5 +1,6 @@
 from card import Card
 from typing import List
+import random
 # n player.py create a class Player that contains these attributes:
 
 # cards which is a list of Card. (you will need to import Card from card.py). In a real card game, this is equivalent to the cards that the player has in his hands.
@@ -43,26 +44,36 @@ class Player:
 
 class Deck:
 
+    cards=[]
+    def __init__(self):
+        pass
        
-    def fill_deck():
-        cards:list[Card]=[]
+    def fill_deck(self):
+        _cards:list[Card]=[]
         for i in range(0, 4):
             for j in range(0, 13):
-                cards.append(Card("red",i,j) )
-        return cards
+                _cards.append(Card("red",i,j) )
         
+        
+        self.cards=_cards
+        
+    def shuffle(self):
+        random.shuffle(self.cards)        
 
         pass
-    def shuffle():
-        pass
+       #self.cards=cards
+        
     def distrubute(players:list[Player]):
         pass
 
 
-a=Deck.fill_deck()
+a=Deck()
+a.fill_deck()
+a.shuffle()
 
-for e in a:
-    print(e.value + e.icon)
+# print(a.cards)
+for e in a.cards:
+    print(e.icon + e.value)
 
 
 
