@@ -12,7 +12,7 @@ class Symbol:
         self.color = ""
         icons = ["♡", "♢", "♣", "♠"]
         self.icon = icons[item]
-        
+
         if item < 2:
             self.color = "red"
         else:
@@ -32,11 +32,12 @@ class Card(Symbol):
 
     def __init__(self, icon, item: int):
 
-        values = ["A", "2", "3", "4", "5", "6", "7",
-                  "8", "9", "10", "J", "Q", "K"]
-
+        values = ["2", "3", "4", "5", "6", "7",
+                  "8", "9", "10", "J", "Q", "K", "A"]
+        points = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
         super().__init__(icon)
         self.value = values[item]
+        self.point = points[item]
 
     def __str__(self):
         return (super().icons[self.icon] + self.values[self.item])

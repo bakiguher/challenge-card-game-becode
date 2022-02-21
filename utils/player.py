@@ -21,6 +21,7 @@ class Player:
     turn_count: int = 0
     number_of_cards: int = 13
     history: List[Card] = []
+    points=0
 
     def __init__(self, name: str):
         self.name = name
@@ -37,7 +38,7 @@ class Player:
         self.number_of_cards -= 1
 
         print(self.name + " played: " + str(card.value) +
-              " of " + str(card.icon) + " / " + str(card.color))
+              " of " + str(card.icon) + " / " + str(card.color) +" / " + str(card.point))
         return card
 
 
