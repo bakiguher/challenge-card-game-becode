@@ -13,9 +13,6 @@
 
 Create a card game in python.
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Cassius_Marcellus_Coolidge_-_Poker_Game_%281894%29.png" width="350" height="350">
-
-
 
 ## Learning Objectives
 
