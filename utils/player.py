@@ -1,4 +1,5 @@
-from card import Card
+from utils.card import Card
+
 from typing import List
 import random
 # n player.py create a class Player that contains these attributes:
@@ -30,7 +31,7 @@ class Player:
         self.number_of_cards -= 1
         
         print(self.name + " played " + str(card.value) + " of "+ str(card.icon))
-
+        return card
         # for k in self.cards:
         #     print(k.value+k.icon)
 

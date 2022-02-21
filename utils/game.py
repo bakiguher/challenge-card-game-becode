@@ -1,5 +1,5 @@
-from card import Card
-from player import Player, Deck
+from utils.card import Card
+from utils.player import Player, Deck
 # A class called Board that contains:
 
 # An attribute players that is a list of Player. It will contain all the players that are playing.
@@ -32,35 +32,35 @@ class Board:
         a.fill_deck()
         a.shuffle()
         a.distrubute(self.players)
-        self.active_cards = a
+        self.history_cards = a
 
         for t in range(0, 13):
-            print("________________")
-            print("Turn: " + str(t+1))
+            print("____________________________")
+            print("Turn: " + str(t+1) + " / Cards Left: " +str(len(self.history_cards.cards)))
             
             for k in self.players:
-                k.play()
-
-        # start thegame
-        # fill a deck
-        # distrubute
-        # each player play
-        pass
+                self.history_cards.cards.remove(k.play())
+        
 
 
-p1 = Player("Azra")
-p2 = Player("Baki")
-p3 = Player("Coni")
-p4 = Player("Desta")
+# p1 = Player("Azra")
+# p2 = Player("Baki")
+# p3 = Player("Coni")
+# p4 = Player("Desta")
 
 
-_players = [p1, p2, p3, p4]
-
-a = Deck()
-k = Board(_players)
-k.start_game()
+# _players = [p1, p2, p3, p4]
 
 
+# k = Board(_players)
+# k.start_game()
+
+
+
+
+
+
+#a = Deck()
 # a.fill_deck()
 # a.shuffle()
 # a.distrubute(_players)
