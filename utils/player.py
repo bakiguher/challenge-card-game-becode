@@ -12,27 +12,22 @@ import random
 
 
 class Player:
-    name=""
+    name = ""
     cards: List[Card] = []
     turn_count: int = 0
-    number_of_cards:int = 0
+    number_of_cards: int = 0
     history: List[Card] = []
 
-    def __init__(self,cards,name, turn_count:int=0,number_of_cards:int=0):
-        self.name=name
-        self.cards=cards
-        self.turn_count=0
-        self.number_of_cards=0
-        self.history=[]
-    def play():
-        #TODO
-            # randomly pick a Card in cards.
-            # Add the Card to the Player's history.
-            # Print: {PLAYER_NAME} {TURN_COUNT} played: {CARD_NUMBER} {CARD_SYMBOL_ICON}.
-            # Return the Card.
-        pass
-    
+    def __init__(self, name):
+        self.name = name
 
+    def play():
+        # TODO
+        # randomly pick a Card in cards.
+        # Add the Card to the Player's history.
+        # Print: {PLAYER_NAME} {TURN_COUNT} played: {CARD_NUMBER} {CARD_SYMBOL_ICON}.
+        # Return the Card.
+        pass
 
 
 # Create a Deck class that contains:
@@ -44,36 +39,49 @@ class Player:
 
 class Deck:
 
-    cards=[]
+    cards = []
+
     def __init__(self):
         pass
-       
+
     def fill_deck(self):
-        _cards:list[Card]=[]
+        _cards: list[Card] = []
         for i in range(0, 4):
             for j in range(0, 13):
-                _cards.append(Card("red",i,j) )
-        
-        
-        self.cards=_cards
-        
+                _cards.append(Card("red", i, j))
+
+        self.cards = _cards
+
     def shuffle(self):
-        random.shuffle(self.cards)        
+        random.shuffle(self.cards)
 
+    def distrubute(self, players: list[Player]):
+        for a in players:
+            i = 0
+            a.cards = self.cards[i::4]
+            i += 1
+
+        # return (deck[0::4], deck[1::4], deck[2::4], deck[3::4])
         pass
-       #self.cards=cards
-        
-    def distrubute(players:list[Player]):
-        pass
 
 
-a=Deck()
+p1 = Player("Azra")
+p2 = Player("Baki")
+p3 = Player("Chrysanti")
+p4 = Player("Destan")
+
+
+_players = [p1, p2, p3, p4]
+
+
+a = Deck()
 a.fill_deck()
 a.shuffle()
+a.distrubute(_players)
+
 
 # print(a.cards)
-for e in a.cards:
-    print(e.icon + e.value)
-
-
-
+for k in _players:
+    print("########")
+    for e in k.cards:
+        print(e.icon + e.value)
