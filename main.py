@@ -1,4 +1,3 @@
-
 from utils.player import Player
 from utils.game import Board
 

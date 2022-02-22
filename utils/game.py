@@ -2,7 +2,6 @@ from utils.card import Card
 from utils.player import Player, Deck
 
 
-
 class Board:
     players: list[Player] = []
     turn_count: int = 0
@@ -13,19 +12,18 @@ class Board:
         self.players = players
 
     def __str__(self):
-        return len(self.players) + " players at turn nr: "+ str(self.turn_count) 
+        return len(self.players) + " players at turn nr: " + str(self.turn_count)
 
     def start_game(self):
         """
         Function that will start the game
         Creates a Deck, fills, shuffles and distributes the deck
         Writes the turn number and remaining cards amount of the game
-        for each player plays the game and removes the played cards from card history.  
-        
+        for each player plays the game and removes the played cards from card history.
+
         """
-    
-        
-        _deck=  Deck()
+
+        _deck = Deck()
         _deck.fill_deck()
         _deck.shuffle()
         _deck.distrubute(self.players)
@@ -33,10 +31,12 @@ class Board:
 
         for t in range(0, 13):
             print("____________________________")
-            print("Turn: " + str(t+1) + " / Cards Left: " +str(len(self.history_cards.cards)))
-            
+            print(
+                "Turn: "
+                + str(t + 1)
+                + " / Cards Left: "
+                + str(len(self.history_cards.cards))
+            )
+
             for k in self.players:
                 self.history_cards.cards.remove(k.play())
-        
-
-
