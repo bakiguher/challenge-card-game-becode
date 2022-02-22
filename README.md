@@ -11,7 +11,7 @@
 
 # Description
 
-A basic card game in python. Must Have Version
+A basic card game 4 players in python. Must Have Version
 
 
 ## Learning Objectives
@@ -29,6 +29,9 @@ A basic card game in python. Must Have Version
 
 ## Usage
       python main.py
+      Enter the names comma seperated, if not given any name would be Player<nr>
+      Each turn the card with the highest value wins. 1 point added to player
+      
 
 
 

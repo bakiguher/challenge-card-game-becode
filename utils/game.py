@@ -19,7 +19,7 @@ class Board:
         Function that will start the game
         Creates a Deck, fills, shuffles and distributes the deck
         Writes the turn number and remaining cards amount of the game
-        for each player plays the game and removes the played cards from card history.  
+        for each player plays the game and removes the played cards from card history.
 
         """
 
@@ -31,19 +31,28 @@ class Board:
 
         for t in range(0, 13):
             print("____________________________")
-            print("Turn: " + str(t+1) + " / Cards Left: " +
-                  str(len(self.history_cards.cards)))
+            print(
+                "Turn: "
+                + str(t + 1)
+                + " / Cards Left: "
+                + str(len(self.history_cards.cards))
+            )
 
             turnpoints = []
             for k in self.players:
                 a = k.play()
-                turnpoints.append(a.value)
+                turnpoints.append(a.point)
 
                 self.history_cards.cards.remove(a)
             max_value = max(turnpoints)
             max_index = turnpoints.index(max_value)
             self.players[max_index].points += 1
-        print("_____________________")
+            print("Turn points ")
+
+            for z in self.players:
+                print(z.name + " :  " + str(z.points))
+
+        print("XXXXXXXXXXXX GAME OVER XXXXXXXXXXXXXX")
         print("Results :  ")
         for z in self.players:
             print(z.name + " :  " + str(z.points))
