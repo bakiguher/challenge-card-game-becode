@@ -5,7 +5,7 @@ class Symbol:
     :icon ["♡", "♢", "♣","♠"]
     """
 
-    color: str = ""  # Why do we need color????
+    color: str = ""
 
     def __init__(self, item: int):
         self.color = ""
@@ -24,7 +24,7 @@ class Symbol:
 class Card(Symbol):
 
     """
-    Card class
+    Card class, a card with icon and number
     :inherits Symbol
     :value=  ["A", "2", "3", "4", "5", "6", "7","8", "9", "10", "J", "Q", "K"]
     """
@@ -38,4 +38,4 @@ class Card(Symbol):
         self.point = points[item]
 
     def __str__(self):
-        return f'{super().icons[self.icon]}{self.values[self.item]}'
+        return f"{super().icons[self.icon]}{self.values[self.item]}"

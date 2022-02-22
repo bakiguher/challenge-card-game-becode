@@ -28,9 +28,9 @@ class Player:
 
     def play(self):
         """
-        Function to play a card. It is asked player to choose a card from given cards. It checks if selection 
+        Function to play a card. It is asked player to choose a card from given cards. It checks if selection
         is valid Played cards removed from cards and added to history
-        also keeping turn number for future reference. 
+        also keeping turn number for future reference.
         """
 
         i = 0
@@ -39,20 +39,20 @@ class Player:
             print(str(i), ":", a.icon, a.value, " ", end=" ")
             i += 1
 
-        _selectedcardindex = input("Choose a card ")
+        _selectedcardindex = 0  # input("Choose a card ")
         try:
             _selectedcardindex = int(_selectedcardindex)
-            
+
         except ValueError:
             print("That's not an int!")
-
 
         if _selectedcardindex < i and _selectedcardindex >= 0:
             card = self.cards[int(_selectedcardindex)]
 
         else:
-            card = random.choice(self.cards)
-            print("Dont cheat q")
+            pass
+        card = random.choice(self.cards)
+        # print("Dont cheat q")
 
         turn = 13 - self.number_of_cards + 1
         self.history.append(card)
@@ -60,8 +60,12 @@ class Player:
         self.number_of_cards -= 1
 
         print(
-            self.name, " played: ", str(card.icon), str(
-                card.value), " p:", str(card.point)
+            self.name,
+            " played: ",
+            str(card.icon),
+            str(card.value),
+            " p:",
+            str(card.point),
         )  # + " / " + str(card.color) +" / " + str(card.point)
         return card
 
@@ -83,10 +87,8 @@ class Deck:
 
     def fill_deck(self):
         """
-    Function that fills the deck with 52 cards .
-
-
-    """
+        Function that fills the deck with 52 cards .
+        """
         _cards: list[Card] = []
         for i in range(0, 4):
             for j in range(0, 13):
@@ -95,15 +97,15 @@ class Deck:
         self.cards = _cards
 
     def shuffle(self):
-        ''' function to shuffle the cards '''
+        """function to shuffle the cards"""
         random.shuffle(self.cards)
 
     def distrubute(self, players: list[Player]):
         """
-    Function that will perform the distrubution operation of the card to players(in params).
-    :players: list of Player  
+        Function that will perform the distrubution operation of the card to players(in params).
+        :players: list of Player
 
-    """
+        """
         i = 0
         for a in players:
             a.cards = self.cards[i::4]

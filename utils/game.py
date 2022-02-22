@@ -50,17 +50,21 @@ class Board:
             self.players[max_index].points += 1
             print("Turn points ")
 
-            for z in self.players:
-                print(z.name + " :  " + str(z.points))
-
+            for _z in self.players:
+                print(_z.name + " :  " + str(_z.points))
 
         print("XXXXXXXXXXXX GAME OVER XXXXXXXXXXXXXX")
-        print("Results :  ")
-        for z in self.players:
-            print(z.name + " :  " + str(z.points))
+        print("Points :  ")
+        _winner = {}
+        for _t in self.players:
+            print(_t.name + " :  " + str(_t.points))
+            _winner[_t.name] = _t.points
 
-
-# - Make the game interactive, at each turn, ask the player which card he/her wants to play.
-# - Create game-over conditions and add the possibility in the game to end because of the aforementioned conditions.
-# - Add points for each player if the card is the most `powerful` card played that turn.
-# - Select a winner out of the players at the end of the game.
+        # ordering winner dictionary
+        _q = {
+            k: v
+            for k, v in sorted(_winner.items(), key=lambda item: item[1], reverse=True)
+        }
+        print("WINNER IS :")
+        _first_pair = next(iter((_q.items())))
+        print(_first_pair[0])
