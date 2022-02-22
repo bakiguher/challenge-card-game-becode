@@ -52,7 +52,8 @@ class Player:
         self.number_of_cards -= 1
 
         print(
-            self.name, " played: ", str(card.icon), str(card.value), str(card.point)
+            self.name, " played: ", str(card.icon), str(
+                card.value), str(card.point)
         )  # + " / " + str(card.color) +" / " + str(card.point)
         return card
 
@@ -73,6 +74,11 @@ class Deck:
         pass
 
     def fill_deck(self):
+        """
+    Function that fills the deck with 52 cards .
+    
+
+    """
         _cards: list[Card] = []
         for i in range(0, 4):
             for j in range(0, 13):
@@ -81,9 +87,15 @@ class Deck:
         self.cards = _cards
 
     def shuffle(self):
+        ''' function to shuffle the cards '''
         random.shuffle(self.cards)
 
     def distrubute(self, players: list[Player]):
+        """
+    Function that will perform the distrubution operation of the card to players(in params).
+    :players: list of Player  
+
+    """
         i = 0
         for a in players:
             a.cards = self.cards[i::4]
