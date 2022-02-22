@@ -28,8 +28,9 @@ class Player:
 
     def play(self):
         """
-        Function to play a card. Played cards removed from cards and added to history
-        also keeping turn number for future reference
+        Function to play a card. It is asked player to choose a card from given cards. It checks if selection 
+        is valid Played cards removed from cards and added to history
+        also keeping turn number for future reference. 
         """
 
         i = 0
@@ -37,14 +38,21 @@ class Player:
         for a in self.cards:
             print(str(i), ":", a.icon, a.value, " ", end=" ")
             i += 1
-        _selectedcardindex = int(input("Choose a card "))
+
+        _selectedcardindex = input("Choose a card ")
+        try:
+            _selectedcardindex = int(_selectedcardindex)
+            
+        except ValueError:
+            print("That's not an int!")
+
+
         if _selectedcardindex < i and _selectedcardindex >= 0:
             card = self.cards[int(_selectedcardindex)]
 
         else:
             card = random.choice(self.cards)
-
-        # print(self.cards)
+            print("Dont cheat q")
 
         turn = 13 - self.number_of_cards + 1
         self.history.append(card)
@@ -53,7 +61,7 @@ class Player:
 
         print(
             self.name, " played: ", str(card.icon), str(
-                card.value), str(card.point)
+                card.value), " p:", str(card.point)
         )  # + " / " + str(card.color) +" / " + str(card.point)
         return card
 
@@ -76,7 +84,7 @@ class Deck:
     def fill_deck(self):
         """
     Function that fills the deck with 52 cards .
-    
+
 
     """
         _cards: list[Card] = []

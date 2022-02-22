@@ -30,6 +30,7 @@ class Board:
         self.history_cards = _deck
 
         for t in range(0, 13):
+            print()
             print("____________________________")
             print(
                 "Turn: "
@@ -51,6 +52,7 @@ class Board:
 
             for z in self.players:
                 print(z.name + " :  " + str(z.points))
+
 
         print("XXXXXXXXXXXX GAME OVER XXXXXXXXXXXXXX")
         print("Results :  ")

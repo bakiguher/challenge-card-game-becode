@@ -18,7 +18,7 @@ class Symbol:
             self.color = "black"
 
     def __str__(self):
-        return f"{self.color} {self.icon}"
+        return f"{self.color}{self.icon}"
 
 
 class Card(Symbol):
@@ -38,4 +38,4 @@ class Card(Symbol):
         self.point = points[item]
 
     def __str__(self):
-        return super().icons[self.icon] + self.values[self.item]
+        return f'{super().icons[self.icon]}{self.values[self.item]}'
