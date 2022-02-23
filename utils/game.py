@@ -45,6 +45,7 @@ class Board:
                 turnpoints.append(a.point)
 
                 self.history_cards.cards.remove(a)
+                self.active_cards.append(a)
             max_value = max(turnpoints)
             max_index = turnpoints.index(max_value)
             self.players[max_index].points += 1
@@ -68,3 +69,7 @@ class Board:
         print("WINNER IS :")
         _first_pair = next(iter((_q.items())))
         print(_first_pair[0])
+
+
+
+
