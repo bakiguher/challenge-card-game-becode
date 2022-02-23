@@ -13,8 +13,8 @@
 
 A basic card game in python. Must Have Version
 
-<a href="url"><img src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Cassius_Marcellus_Coolidge_-_Poker_Game_%281894%29.png
-"  height="350" width="350" ></a>
+<img src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Cassius_Marcellus_Coolidge_-_Poker_Game_%281894%29.png
+"  height="350" width="350" >
 
 
 
