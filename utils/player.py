@@ -36,10 +36,8 @@ class Player:
         self.cards.remove(_card)
         self.number_of_cards -= 1
 
-        
-        print (f"{self.name} played {_card.value} {_card.icon}")
+        print(f"{self.name} played {_card.value} {_card.icon}")
         return _card
-
 
 
 class Deck:

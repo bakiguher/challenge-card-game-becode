@@ -4,12 +4,13 @@ from utils.player import Player, Deck
 
 class Board:
     """
-    Board class, where the game is played. 
-    :players All the players 
-    :turn_count 
+    Board class, where the game is played.
+    :players All the players
+    :turn_count
     :active_cards Cards in the last hand
-    :history_cards The cards played in previous hands 
+    :history_cards The cards played in previous hands
     """
+
     players: list[Player] = []
     turn_count: int = 0
     active_cards: list[Card] = []
@@ -46,6 +47,6 @@ class Board:
             )
 
             for k in self.players:
-                _k=k.play()
+                _k = k.play()
                 self.history_cards.cards.remove(_k)
                 self.active_cards.append(_k)
