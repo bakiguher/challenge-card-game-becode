@@ -37,9 +37,6 @@ Challenge-card-game-becode
    
 ```
 
-
-
-
 ## Installation
 To run execute below commands
 
