@@ -30,15 +30,16 @@ class Player:
         Function to play a card. Played cards removed from cards and added to history
         also keeping turn number for future reference
         """
-        card = random.choice(self.cards)
+        _card = random.choice(self.cards)
         turn = 13 - self.number_of_cards + 1
-        self.history.append(card)
-        self.cards.remove(card)
+        self.history.append(_card)
+        self.cards.remove(_card)
         self.number_of_cards -= 1
 
         
-        print (f"{self.name} played {card.value} {card.icon}")
-        return card
+        print (f"{self.name} played {_card.value} {_card.icon}")
+        return _card
+
 
 
 class Deck:
