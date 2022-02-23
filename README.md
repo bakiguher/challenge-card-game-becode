@@ -37,10 +37,11 @@ To run execute below commands
 
 ## Advanced features
 
-To make game more interative following advanced features has been added in [nice-to-have-features](https://github.com/bakiguher/challenge-card-game-becode/tree/nice-to-have) branch -
+To make game more interative following advanced features has been added in [nice-to-have-features](https://github.com/bakiguher/challenge-card-game-becode/tree/nice-to-have) 
 
 - Enter name for each player
 - Each turn, player can decide which card he/she wants to play.
-- Player who has the highest point car gets a 1 point for that turn 
+- Player who has the highest valued card gets a 1 point for that turn 
+  - Cards from smallest to highest value: ["2", "3", "4", "5", "6", "7","8", "9", "10", "J", "Q", "K", "A"]
 - At the end all the points will be shown and the winner will be declared.
 
