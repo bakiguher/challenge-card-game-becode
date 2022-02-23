@@ -3,6 +3,14 @@ from utils.player import Player, Deck
 
 
 class Board:
+    """
+    Board class, where the game is played.
+    :players All the players
+    :turn_count
+    :active_cards Cards in the last hand
+    :history_cards The cards played in previous hands
+    """
+
     players: list[Player] = []
     turn_count: int = 0
     active_cards: list[Card] = []
@@ -20,6 +28,8 @@ class Board:
         Creates a Deck, fills, shuffles and distributes the deck
         Writes the turn number and remaining cards amount of the game
         for each player plays the game and removes the played cards from card history.
+        compares last played cards and gives a point to highest played card,
+        At the end of the game prints points and the winner
 
         """
 
@@ -33,7 +43,7 @@ class Board:
             print()
             print("____________________________")
             print(
-                "Turn: "
+                "TURN: "
                 + str(t + 1)
                 + " / Cards Left: "
                 + str(len(self.history_cards.cards))
@@ -69,7 +79,3 @@ class Board:
         print("WINNER IS :")
         _first_pair = next(iter((_q.items())))
         print(_first_pair[0])
-
-
-
-
