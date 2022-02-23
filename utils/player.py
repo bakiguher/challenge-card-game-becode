@@ -15,7 +15,7 @@ class Player:
     :cards = the cards in player's hand
     :turn count= which turn is getting played
     :number of cards: how manycards does player have in hand
-    :history= cards he played
+    :history= cards he played 
     """
 
     cards: List[Card] = []

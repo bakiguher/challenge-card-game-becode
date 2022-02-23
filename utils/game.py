@@ -6,7 +6,7 @@ class Board:
     """
     Board class, where the game is played.
     :players All the players
-    :turn_count
+    :turn_count 
     :active_cards Cards in the last hand
     :history_cards The cards played in previous hands
     """

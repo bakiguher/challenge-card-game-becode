@@ -1,6 +1,6 @@
 class Symbol:
     """
-    Symbol class
+    Symbol class 
     :color Red or Black
     :icon ["♡", "♢", "♣","♠"]
     """

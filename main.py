@@ -3,7 +3,7 @@ from utils.game import Board
 
 
 """
-Create 4 player
+Create 4 player 
 """
 
 

@@ -37,7 +37,7 @@ To run execute below commands
 
 ## Advanced features
 
-To make game more interative following advanced features has been added in [nice-to-have-features](https://github.com/bakiguher/challenge-card-game-becode/tree/nice-to-have) 
+To make game more interative following advanced features has been added in  [nice-to-have-features](https://github.com/bakiguher/challenge-card-game-becode/tree/nice-to-have) 
 
 - Enter name for each player
 - Each turn, player can decide which card he/she wants to play.
