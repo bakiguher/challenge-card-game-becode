@@ -23,6 +23,23 @@ A basic card game in python. **Nice to Have Version**
 - Structure a project.
 - Go deeper in object inheritance.
 
+## Repo Architecture 
+
+```
+Challenge-card-game-becode
+│   README.md      :This file
+│   main.py        :Starts the program
+│__   
+│   utils          
+│   │ card.py      :Classes for game cards, Symbol and Card.
+│   │ game.py      :Board class, where the game is played 
+│   │ player.py    :Player and Deck classes 
+   
+```
+
+
+
+
 ## Installation
 To run execute below commands
 
