@@ -1,52 +1,40 @@
-from enum import Enum
-from xml.etree.ElementTree import tostring
-
-# class Icon(Enum):
-#     Clubs = '♣'
-#     Diamonds = '♦'
-#     Hearths = '♥'
-#     Spades = '♠'
-
-# symbol = "♠ ♡ ♢ ♣".split()
-# ranks = "2 3 4 5 6 7 8 9 10 J Q K A".split()
-
-
 class Symbol:
-    color: str = ""
-    icon = ""
+    """
+    Symbol class
+    :color Red or Black
+    :icon ["♡", "♢", "♣","♠"]
+    """
 
-    def __init__(self, color: str, item: int):
-        self.color = color
-        icons = ["♠", "♡", "♢", "♣"]
+    color: str = ""  # Why do we need color????
+
+    def __init__(self, item: int):
+        self.color = ""
+        icons = ["♡", "♢", "♣", "♠"]
         self.icon = icons[item]
+
+        if item < 2:
+            self.color = "red"
+        else:
+            self.color = "black"
 
     def __str__(self):
         return f"{self.color} {self.icon}"
 
 
 class Card(Symbol):
-    value = ""
 
-    def __init__(self, color, icon, item: int):
+    """
+    Card class
+    :inherits Symbol
+    :value=  ["A", "2", "3", "4", "5", "6", "7","8", "9", "10", "J", "Q", "K"]
+    """
 
-        values = ["Ace", "2", "3", "4", "5", "6", "7",
-                  "8", "9", "10", "Jack", "Queen", "King"]
+    def __init__(self, icon, item: int):
 
-        super().__init__(color, icon)
+        values = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"]
+
+        super().__init__(icon)
         self.value = values[item]
 
     def __str__(self):
-        return (super().icons[self.icon] + self.values[self.item])
-
-
-
-b=Symbol("blue",2)
-print (b)
-# a = Card("red", 0, 4)
-# print(a.value)
-# a = Card("blue", 0, 9)
-# print(a)
-# # class Deck:
-
-
-#a = Card("green")
+        return super().icons[self.icon] + self.values[self.item]

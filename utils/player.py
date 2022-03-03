@@ -1,68 +1,74 @@
-from card import Card
+"""
+import random to shuffle the cards and chose a random card 
+"""
+
+from utils.card import Card
 from typing import List
-# n player.py create a class Player that contains these attributes:
-
-# cards which is a list of Card. (you will need to import Card from card.py). In a real card game, this is equivalent to the cards that the player has in his hands.
-# turn_count which is an int starting a 0.
-# number_of_cards which is an int starting at 0.
-# history which is a list of Card that will contain all the cards played by the player.
-
-# play() that will:
+import random
 
 
 class Player:
-    name=""
+    """
+    Player class:
+    :name = name of the player
+    :cards = the cards in player's hand
+    :turn count= which turn is getting played
+    :number of cards: how manycards does player have in hand
+    :history= cards he played
+    """
+
     cards: List[Card] = []
     turn_count: int = 0
-    number_of_cards:int = 0
+    number_of_cards: int = 13
     history: List[Card] = []
 
-    def __init__(self,cards,name, turn_count:int=0,number_of_cards:int=0):
-        self.name=name
-        self.cards=cards
-        self.turn_count=0
-        self.number_of_cards=0
-        self.history=[]
-    def play():
-        #TODO
-            # randomly pick a Card in cards.
-            # Add the Card to the Player's history.
-            # Print: {PLAYER_NAME} {TURN_COUNT} played: {CARD_NUMBER} {CARD_SYMBOL_ICON}.
-            # Return the Card.
-        pass
-    
+    def __init__(self, name: str):
+        self.name = name
 
+    def play(self):
+        """
+        Function to play a card. Played cards removed from cards and added to history
+        also keeping turn number for future reference
+        """
+        _card = random.choice(self.cards)
+        turn = 13 - self.number_of_cards + 1
+        self.history.append(_card)
+        self.cards.remove(_card)
+        self.number_of_cards -= 1
 
+        print(f"{self.name} played {_card.value} {_card.icon}")
+        return _card
 
-# Create a Deck class that contains:
-
-# An attribute cards which is going to contain a list of instances of Card.
-# A fill_deck() method that will fill cards with a complete card game (an instance of 'A, 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K' for each possible symbol [♥, ♦, ♣, ♠]). Your deck should contain 52 cards at the end.
-# A shuffle() method that will shuffle all the list of cards.
-# A distribute() that will take a list of Player as parameter and will distribute the cards evenly between all the players.
 
 class Deck:
+    """
+    Deck class:
+    :cards = all the cards in the deck
+    :fill_deck() = filling the deck with 52 cards
+    :shuffle(): shuffling all the cards
+    :distrubute(): distrubuting cards to 4 players each 13 splitting the array
 
-       
-    def fill_deck():
-        cards:list[Card]=[]
+    """
+
+    cards = []
+
+    def __init__(self):
+        pass
+
+    def fill_deck(self):
+        _cards: list[Card] = []
         for i in range(0, 4):
             for j in range(0, 13):
-                cards.append(Card("red",i,j) )
-        return cards
-        
+                _cards.append(Card(i, j))
 
-        pass
-    def shuffle():
-        pass
-    def distrubute(players:list[Player]):
-        pass
+        self.cards = _cards
 
+    def shuffle(self):
+        random.shuffle(self.cards)
 
-a=Deck.fill_deck()
-
-for e in a:
-    print(e.value + e.icon)
-
-
-
+    def distrubute(self, players: list[Player]):
+        i = 0
+        for a in players:
+            a.cards = self.cards[i::4]
+            i += 1
+            a.number_of_cards = len(a.cards)

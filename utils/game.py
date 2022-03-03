@@ -1,33 +1,52 @@
-from card import Card
-from player import Player, Deck
-# A class called Board that contains:
+from utils.card import Card
+from utils.player import Player, Deck
 
-# An attribute players that is a list of Player. It will contain all the players that are playing.
-# An attribute turn_count that is an int.
-# An attribute active_cards that will contain the last card played by each player.
-# An attribute history_cards that will contain all the cards played since the start of the game, except for active_cards.
-# A method start_game() that will:
-# Start the game,
-# Fill a Deck,
-# Distribute the cards of the Deck to the players.
-# Make each Player play() a Card, where each player should only play 1 card per turn, and all players have to play at each turn until they have no cards left.
-# At the end of each turn, print:
-# The turn count.
-# The list of active cards.
-# The number of cards in the history_cards.
 
 class Board:
-    players:list[Player]=[]
-    turn_count:int=0
-    active_cards:list[Card]=[]
-    history_cards:list[Card]=[]
+    """
+    Board class, where the game is played.
+    :players All the players
+    :turn_count
+    :active_cards Cards in the last hand
+    :history_cards The cards played in previous hands
+    """
 
-    def __init__(self, players:list[Player],deck:Deck):
-        pass
+    players: list[Player] = []
+    turn_count: int = 0
+    active_cards: list[Card] = []
+    history_cards: list[Card] = []
 
-    def start_game():
-        #start thegame
-        #fill a deck
-        #distrubute
-        #each player play
-        pass
+    def __init__(self, players: list[Player]):
+        self.players = players
+
+    def __str__(self):
+        return len(self.players) + " players at turn nr: " + str(self.turn_count)
+
+    def start_game(self):
+        """
+        Function that will start the game
+        Creates a Deck, fills, shuffles and distributes the deck
+        Writes the turn number and remaining cards amount of the game
+        for each player plays the game and removes the played cards from card history.
+
+        """
+
+        _deck = Deck()
+        _deck.fill_deck()
+        _deck.shuffle()
+        _deck.distrubute(self.players)
+        self.history_cards = _deck
+
+        for t in range(0, 13):
+            print("____________________________")
+            print(
+                "Turn: "
+                + str(t + 1)
+                + " / Cards Left: "
+                + str(len(self.history_cards.cards))
+            )
+
+            for k in self.players:
+                _k = k.play()
+                self.history_cards.cards.remove(_k)
+                self.active_cards.append(_k)
